@@ -1,0 +1,11 @@
+class Solution {
+    public int[] getConcatenation(int[] nums) {
+        int a=nums.length;
+        int barr[]=new int[2*a];
+        for(int i=0;i<a;i++){
+            barr[i]=nums[i];
+            barr[i+a]=nums[i];
+        }
+        return barr;
+    }
+}
