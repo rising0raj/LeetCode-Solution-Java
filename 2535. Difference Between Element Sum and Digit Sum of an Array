@@ -1,0 +1,21 @@
+class Solution {
+    public int differenceOfSum(int[] nums) {
+        int sum1=0,sum2=0,c=0,d=0;
+        for(int i=0;i<nums.length;i++){
+            sum1+=nums[i];
+            if(nums[i]<=9){
+                sum2+=nums[i];
+            }
+            if(nums[i]>9){
+                c=nums[i];
+                while(c>=1){
+                    d=c%10;
+                    sum2+=d;
+                    c=c/10;
+                }
+            }
+        }
+        
+        return sum1-sum2;
+    }
+}
