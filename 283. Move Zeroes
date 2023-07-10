@@ -1,0 +1,52 @@
+
+#SOLUTION-1
+Runtime   1 ms
+Beats     100%
+
+Memory    45.2 MB
+Beats     59.47%
+
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int i = 0; 
+        for (int num:nums){
+            if(num != 0){
+                nums[i] = num;
+                i++;
+            }
+        }
+        while(i<nums.length){
+            nums[i] = 0;
+            i++;
+        }
+    }
+}
+
+
+
+#SOLUTION-2
+
+Runtime    2 ms
+Beats      40.49%
+
+Memory     44.8 MB
+Beats      83.35%
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int []target=new int[nums.length];
+        System.arraycopy(nums, 0, target, 0, nums.length);
+        int beg = 0 , end = nums.length - 1;
+        for(int i=0 ; i < nums.length && end >= beg ; i++){
+            if(target[i] == 0){
+                nums[end]=target[i];
+                end--;
+            }
+            else{
+                nums[beg]=target[i];
+                beg++;
+            }
+        }
+    }
+}
