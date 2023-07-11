@@ -1,0 +1,19 @@
+Runtime    1 ms
+Beats      100%
+
+Memory     59.5 MB
+Beats      46.48%
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int  sum=0,maxi=nums[0];
+        for(int i=0;i<nums.length;i++){
+            sum=sum+nums[i];
+            maxi=Math.max(maxi,sum);
+            if(sum<0){
+                sum=0;
+            }
+        }
+        return maxi;
+    }
+}
