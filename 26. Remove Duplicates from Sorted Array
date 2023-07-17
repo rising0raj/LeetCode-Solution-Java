@@ -1,17 +1,19 @@
+Runtime   1 ms
+Beats    99.23%
+
+
+Memory   43.9 MB
+Beats    60.22%
+
 class Solution {
     public int removeDuplicates(int[] nums) {
-         if(nums.length == 0)
-            return 0;
-        
-        int addIndex = 1; 
-
-        for(int i = 0; i < nums.length - 1; i++) {
-            
-            if(nums[i] != nums[i + 1]){
-              nums[addIndex] = nums[i + 1];
-              addIndex++;
+        int j = 0; 
+        for(int i = 1; i < nums.length; i++) {
+            if(nums[i] != nums[j]){
+                j++;
+                nums[j]=nums[i];
             }
         }
-        return addIndex;
+        return j+1;
     }
 }
