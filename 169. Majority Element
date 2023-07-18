@@ -1,0 +1,24 @@
+Runtime  1 ms
+Beats    99.80%
+
+Memory   48.6 MB
+Beats    51.70%
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        int el=0,count=0;
+        for(int num:nums){
+            if(count==0){
+                el=num;
+                count++;
+            }
+            else if(el==num){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        return el;
+    }
+}
