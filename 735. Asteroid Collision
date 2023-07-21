@@ -1,0 +1,21 @@
+Runtime  1 ms
+Beats    100%
+
+
+Memory   43.9 MB
+Beats    77.79%
+
+class Solution {
+    public int[] asteroidCollision(int[] asteroids) {
+  int top = -1;
+        for (int x : asteroids) {
+            boolean stillAlive = true;
+            while (stillAlive && x < 0 && top >= 0 && asteroids[top] > 0) {
+                stillAlive = asteroids[top] + x < 0;
+                if (asteroids[top] + x <= 0) top--; 
+            }
+            if (stillAlive) asteroids[++top] = x; 
+        }    
+        return Arrays.copyOf(asteroids, top+1);
+    }
+}
