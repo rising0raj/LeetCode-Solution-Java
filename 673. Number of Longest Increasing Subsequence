@@ -1,0 +1,36 @@
+Runtime    23 ms
+Beats     75.94%
+
+
+Memory    43.1 MB
+Beats     69.97%
+
+
+class Solution {
+    public int findNumberOfLIS(int[] nums) {
+        int[] len = new int[nums.length];
+	    int[] count = new int[nums.length];
+	    Arrays.fill(len, 1);
+	    Arrays.fill(count, 1);
+	    int lisCount = 0;
+	    int maxLength = 0;
+	    for (int i = 0; i < nums.length; i++) {
+		    for (int j = 0; j < i; j++) {
+			    if (nums[i] > nums[j]) {
+				    if (len[i] == len[j] + 1) {
+					    count[i] += count[j];
+				    } else if (len[i] < len[j] + 1) {
+					len[i] = len[j] + 1;
+					count[i] = count[j];
+				}
+			}
+		}
+		if (maxLength == len[i]) {
+			lisCount += count[i];
+		} else if (maxLength < len[i]) {
+			maxLength = len[i];
+			lisCount = count[i];
+		}}
+        return lisCount;
+    }
+}
