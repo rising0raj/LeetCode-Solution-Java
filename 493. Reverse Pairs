@@ -1,0 +1,62 @@
+Runtime   132 ms
+Beats     27.56%
+
+
+Memory    51.3 MB
+Beats     82.74%
+
+class Solution {
+    private int count;
+
+    public int reversePairs(int[] nums) {
+        count = 0;
+        mergeSort(nums, 0, nums.length - 1);
+        return count;
+    }
+
+    private int[] mergeSort(int[] nums, int left, int right) {
+        if (left == right) {
+            return new int[]{nums[left]};
+        }
+
+        int mid = left + (right - left) / 2;
+        int[] leftSorted = mergeSort(nums, left, mid);
+        int[] rightSorted = mergeSort(nums, mid + 1, right);
+
+        int i = 0, j = 0;
+        int lenL = leftSorted.length;
+        int lenR = rightSorted.length;
+        while (i < lenL) {
+            while (j < lenR && leftSorted[i] > 2 * (long)rightSorted[j]) {
+                j++;
+            }
+            count += j;
+            i++;
+        }
+
+        return merge(leftSorted, rightSorted);
+    }
+
+    private int[] merge(int[] leftSorted, int[] rightSorted) {
+        int lenL = leftSorted.length;
+        int lenR = rightSorted.length;
+        int i = 0, j = 0, index = 0;
+        int[] sorted = new int[lenL + lenR];
+
+        while (i < lenL && j < lenR) {
+            if (leftSorted[i] <= rightSorted[j]) {
+                sorted[index++] = leftSorted[i++];
+            } else {
+                sorted[index++] = rightSorted[j++];
+            }
+        }
+        while (i < lenL) {
+            sorted[index++] = leftSorted[i++];
+        }
+        while (j < lenR) {
+            sorted[index++] = rightSorted[j++];
+        }
+
+        return sorted;
+    }
+}
