@@ -1,0 +1,23 @@
+Runtime  0 ms
+Beats    100%
+
+
+Memory   56.3 MB
+Beats    31.98%
+
+
+class Solution {
+    public int peakIndexInMountainArray(int[] arr) {
+        int s=0,e=arr.length-1,mid=(s+e)/2;
+        while(s<e){
+            if(arr[mid]<arr[mid+1]){
+                s=mid+1;
+            }
+            else{
+                e=mid;
+            }
+            mid=(s+e)/2;
+        }
+        return s;
+    }
+}
