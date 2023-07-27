@@ -1,0 +1,34 @@
+Runtime  20 ms
+Beats    71.82%
+
+
+Memory   56.9 MB
+Beats    63.64%
+
+
+class Solution {
+    public boolean isValid(int n ,int[] batt,long time){
+        long dur=0;
+        for(int ele : batt){
+            if(ele<time) dur +=ele;
+            else dur += time;
+        }
+        return dur >=time*n;
+    }
+    public long maxRunTime(int n, int[] batt) {
+        long sum=0;
+        for(int ele : batt)
+            sum+=ele;
+        long start=0,end=sum,ans=0;
+        while(start<=end){
+            long avg=(start+end)>>>1;
+            if(isValid(n,batt,avg)){
+                ans=avg;
+                start=avg+1;
+            }else{
+                end=avg-1;
+            }
+        }
+        return ans;
+    }
+}
