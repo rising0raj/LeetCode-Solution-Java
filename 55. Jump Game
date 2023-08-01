@@ -1,0 +1,22 @@
+Runtime   1 ms
+Beats    99.98%
+
+
+Memory   44.4 MB
+Beats    64.73%
+
+
+class Solution {
+    public boolean canJump(int[] nums) {
+        int c=0;
+        for(int i=nums.length -2 ;i>=0 ; i--){
+            if(nums[i]<=c){
+                c++;
+            }
+            else{
+                c=0;
+            }
+        }
+        return c==0;
+    }
+}
