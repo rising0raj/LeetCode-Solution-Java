@@ -1,0 +1,42 @@
+Runtime  0 ms
+Beats    100%
+
+
+Memory   44.8 MB
+Beats    6.10%
+
+
+class Solution {
+    public int[] searchRange(int[] nums, int t) {
+        int []ans={-1,-1};
+        int l=0,mid=0,h=nums.length-1;
+        while(l<=h){
+            mid=(l+h)/2;
+            if(t==nums[mid]){
+                ans[0]=mid;
+                h=mid-1;
+            }
+            else if(nums[mid]<t){
+                l=mid+1;
+            }
+            else{
+                h=mid-1;
+            }
+        }
+        l=0;h=nums.length-1;
+        while(l<=h){
+            mid=(l+h)/2;
+            if(t==nums[mid]){
+                ans[1]=mid;
+                l=mid+1;
+            }
+            else if(nums[mid]<t){
+                l=mid+1;
+            }
+            else{
+                h=mid-1;
+            }
+        }
+        return ans;
+    }
+}
