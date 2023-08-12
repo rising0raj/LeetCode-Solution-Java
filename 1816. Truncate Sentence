@@ -1,0 +1,23 @@
+Runtime     0 ms
+Beats       100%
+
+
+Memory      40.8 MB
+Beats       80.31%
+
+
+class Solution {
+    public String truncateSentence(String s, int k) {
+        int count = 0;
+        
+        for( int i = 0; i < s.length(); i++){
+            if( s.charAt(i) == ' ')
+                count++;
+            if(count == k){
+                s = s.substring(0,i);
+                break;
+            }
+        }
+        return s;
+    }
+}
