@@ -1,0 +1,23 @@
+Runtime    0 ms
+Beats      100%
+
+
+Memory     40.3 MB
+Beats      96.73%
+
+class Solution {
+    public String toLowerCase(String s) {
+        // StringBuffer ans=new StringBuffer();
+        // for(int i=0;i<s.length();i++){
+        //     if(s.charAt(i)<=90 && s.charAt(i)>=65){
+        //         char s2=(char)(s.charAt(i)+32);
+        //         ans.append(s2);
+        //     }else {
+        //         ans.append(s.charAt(i));
+        //     }
+        // }
+        // return ans.toString();
+
+        return s.toLowerCase();
+    }
+}
