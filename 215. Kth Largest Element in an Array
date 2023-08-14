@@ -1,0 +1,25 @@
+Runtime    23 ms
+Beats      85.60%
+
+
+Memory     54.1 MB
+Beats      86.2%
+
+
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        // PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        // for(int i:nums){
+        //     minHeap.add(i);
+        // }
+        // int count=0;
+        // while(count<(nums.length-k)){
+        //     minHeap.poll();
+        //     count++;
+        // }
+        // return minHeap.peek();
+
+        Arrays.sort(nums);
+        return nums[nums.length-k];
+    }
+}
