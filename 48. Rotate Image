@@ -1,0 +1,69 @@
+Brute force approach
+
+
+Runtime    0 ms
+Beats      100%
+
+
+Memory     41.5 MB
+Beats      33.39%
+
+
+class Solution {
+    public void rotate(int[][] old) {
+        int [][]current=new int[old.length][old[0].length];
+
+        for (int i = 0; i < old.length; i++)
+            for (int j = 0; j < old[0].length; j++)
+                current[i][j] = old[i][j] ;
+        
+        int a=old.length-1;
+
+        for(int i=0;i<old.length;i++){
+            for(int j=0;j<old[i].length;j++){
+                old[j][a]=current[i][j];
+            }
+            a--;
+        }
+    }
+}
+
+
+Optizmed approach
+
+Runtime   0 ms
+Beats     100%
+
+
+Memory   41.2 MB
+Beats    79.25%
+
+
+class Solution {
+    static void reverseArray(int [] arr)
+        {
+            int i=0;int j= arr.length-1;
+            while (i<j)
+            {
+                int temp =arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+
+                i++;
+                j--;
+            }
+        }
+    public void rotate(int[][] old) {
+        int temp=0;
+        for(int i=0;i<old.length-1;i++){
+            for(int j=i+1;j<old.length;j++){
+                temp=old[i][j];
+                old[i][j]=old[j][i];
+                old[j][i]=temp;
+            }
+        }
+        for(int i=0;i<old.length;i++){
+            reverseArray(old[i]);
+        }
+    }
+}
