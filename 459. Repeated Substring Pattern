@@ -1,0 +1,25 @@
+Runtime    17 ms
+Beats      80.27%
+
+
+Memory     44.2 MB
+Beats      61.10%
+
+
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        int n =s.length();
+        for(int i=n/2;i>=1;i--){
+            if(n%i==0){
+                String str=s.substring(0,i);
+                StringBuilder nwstr=new StringBuilder();
+                for(int j=1;j<=n/i;j++)
+                    nwstr.append(str);
+
+                if(nwstr.toString().equals(s))
+                    return true;
+            }
+        }
+        return false;
+    }
+}
