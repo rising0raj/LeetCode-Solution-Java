@@ -1,0 +1,21 @@
+Runtime    0 ms
+Beats      100%
+
+
+Memory     40.5 MB
+Beats      73.74%
+
+
+class Solution {
+    public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
+        return num(firstWord)+num(secondWord) == num(targetWord);
+    }
+    private int num(String s){
+        int sum=0;
+        for(char c :s.toCharArray()){
+            sum*=10;
+            sum+=(c-'a');
+        }
+        return sum;
+    }
+}
