@@ -1,0 +1,20 @@
+Runtime    0 ms
+Beats      100%
+
+
+Memory     39.6 MB
+Beats      69.20%
+
+
+class Solution {
+    public String convertToTitle(int col) {
+        StringBuilder st=new StringBuilder();
+
+        while(col>0){
+            int r=(col-1)%26;
+            st.append((char)(r+'A'));
+            col=(col-1)/26;
+        }
+        return st.reverse().toString();
+    }
+}
