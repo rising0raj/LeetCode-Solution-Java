@@ -1,0 +1,22 @@
+Runtime    9 ms
+Beats      92.61%
+
+
+Memory     43.9 MB
+Beats      50.19%
+
+
+class Solution {
+    public int findLongestChain(int[][] pairs) {
+         Arrays.sort(pairs, (a,b)-> Integer.compare(a[1], b[1]));
+        int currEnd=Integer.MIN_VALUE;
+        int ans=0;
+        for(int []pair:pairs){
+            if(pair[0]>currEnd){
+                ans++;
+                currEnd=pair[1];
+            }
+        }
+        return ans;
+    }
+}
