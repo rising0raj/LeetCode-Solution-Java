@@ -1,0 +1,22 @@
+Runtime    0 ms
+Beats      100%
+
+
+Memory     43.3 MB
+Beats      98.10%
+
+
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        int res = 0;
+        int j = mat[0].length - 1;
+        for(int i = 0; i < mat[0].length; i++) {
+
+            res  += mat[i][i];
+            if(i + i != i + j)
+            res += mat[i][j];
+            j--;
+        }
+        return res;
+    }
+}
