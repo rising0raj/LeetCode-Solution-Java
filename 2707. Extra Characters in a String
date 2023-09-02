@@ -1,0 +1,31 @@
+Runtime    34 ms
+Beats      84.57%
+
+
+Memory     44.1 MB
+Beats      71.43%
+
+
+class Solution {
+    public int minExtraChar(String s, String[] dictionary) {
+        int n = s.length();
+        int[] dp = new int[n+1];
+        
+        for(int i=n-1;i>=0;i--){
+            int maxLen = 0;
+            for(String word: dictionary){
+                int wordLen = word.length();
+
+                if(n-i >= wordLen){
+                    if(s.substring(i,i+wordLen).equals(word)){
+                        maxLen = Math.max(maxLen,wordLen+dp[i+wordLen]);
+                    }
+                }
+            }
+            
+            dp[i] = Math.max(dp[i+1],maxLen);
+        }
+        
+        return n-dp[0];
+    }
+}
