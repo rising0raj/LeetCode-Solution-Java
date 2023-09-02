@@ -1,0 +1,71 @@
+Runtime    2 ms
+Beats      100%
+
+
+Memory     43.6 MB
+Beats      64.95%
+
+
+class Solution {
+    public int romanToInt(String s) {
+        int res=0;
+        char st[]=s.toCharArray();
+        int n=st.length;
+
+        for(int i=0;i<n;i++){
+            if(st[i] == 'I'){
+                res+=1;
+                if(i+1 < n){
+                    if(st[i+1] == 'V'){
+                    res+=3;
+                    i++;
+                }
+                    
+                else if(st[i+1] == 'X'){
+                    res+=8;
+                    i++;
+                }
+                }
+            }
+            else if(st[i] == 'V')
+                res+=5;
+            else if(st[i] == 'X'){
+                res+=10;
+                if(i+1<n){
+                    if(st[i+1] == 'L'){
+                    res+=30;
+                    i++;
+                }
+                    
+                else if(st[i+1] == 'C'){
+                    res+=80;
+                    i++;
+                }
+                }
+            }
+                
+            else if(st[i] == 'L')
+                res+=50;
+            else if(st[i] == 'C'){
+                res+=100;
+                if(i+1 < n){
+                    if(st[i+1] == 'D'){
+                    res+=300;
+                    i++;
+                }
+                    
+                else if(st[i+1] == 'M'){
+                    res+=800;
+                    i++;
+                }
+                }
+            }
+                
+            else if(st[i] == 'D')
+                res+=500;
+            else if(st[i] == 'M')
+                res+=1000;
+        }
+        return res;
+    }
+}
