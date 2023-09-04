@@ -1,0 +1,25 @@
+Runtime   0 ms
+Beats     100%
+
+
+Memory    43.6 MB
+Beats     52.88%
+
+
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if(head == null)return false;
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next!= null)
+        {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow)return true;
+        }
+
+        return false;
+    }
+}
