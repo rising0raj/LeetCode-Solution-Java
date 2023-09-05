@@ -1,0 +1,16 @@
+Runtime    0 ms
+Beats      100%
+
+
+Memory     40.3 MB
+Beats      54.41%
+
+
+class Solution {
+    public int findLUSlength(String a, String b) {
+        if(a.equals(b))
+            return -1;
+        else
+            return Math.max(a.length(),b.length());
+    }
+}
