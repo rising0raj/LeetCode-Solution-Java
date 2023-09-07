@@ -1,0 +1,23 @@
+Runtime    4 ms
+Beats      100%
+
+
+Memory     42.7 MB
+Beats      73.96%
+
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        int sum=0,x2=x;
+        if(x<0){
+        }else{
+            while(x>0){
+            int s=x%10;
+            sum=sum*10 + s;
+            x=x/10;
+        }
+        }
+        
+        return sum == x2;
+    }
+}
