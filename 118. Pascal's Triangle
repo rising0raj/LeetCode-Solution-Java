@@ -1,0 +1,68 @@
+# Answer 1;
+Runtime    0 ms
+Beats      100%
+
+
+Memory     40.8 MB
+Beats      75.50%
+
+
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> l1 = new ArrayList<>();
+        for(int i=1;i<=numRows;i++) {
+            l1 = rowGen(i);
+            result.add(l1);
+        }
+        return result;
+    }
+    public static List<Integer> rowGen(int r) {
+        List<Integer> rowList = new ArrayList<>();
+        int ans = 1;
+        rowList.add(1);
+        for(int i=1;i<r;i++) {
+            ans = ans*(r-i);
+            ans = ans/i;
+            rowList.add(ans);
+        }
+        return rowList;
+    }
+}
+
+
+#answer 2;
+
+Runtime    1 ms
+Beats      89.25%
+
+
+Memory     41 MB
+Beats      51.11%
+
+
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> a=new ArrayList<List<Integer>>();
+        List<Integer> s=new ArrayList<>();
+        s.add(1);
+        a.add(s);
+        if(numRows==1)
+        return a;
+        s=new ArrayList<>();
+        s.add(1);
+        s.add(1);
+        a.add(s);
+        for(int i=2;i<numRows;i++){ 
+            List<Integer> b=new ArrayList<>();
+            b.add(1);
+            for(int j=0;j<s.size()-1;j++)
+                b.add(s.get(j)+s.get(j+1));
+            b.add(1);
+            a.add(b);
+            s=b;
+        }
+        return a;
+
+    }
+}
