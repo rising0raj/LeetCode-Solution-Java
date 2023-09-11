@@ -1,0 +1,31 @@
+Runtime    1 ms
+Beats      100%
+
+
+Memory     41.4 MB
+Beats      72.58%
+
+
+class Solution {
+    public String modifyString(String s) {
+        if(s.length()==1) return s.equals("?")?"a":s;
+
+        char[] ch = s.toCharArray();
+        for(int i=1;i<ch.length-1;i++){
+            if(ch[i]=='?'){
+                if(ch[i-1]!='a' && ch[i+1]!='a') ch[i]='a';
+                else if(ch[i-1]!='b' && ch[i+1]!='b') ch[i]='b';
+                else if(ch[i-1]!='c' && ch[i+1]!='c') ch[i]='c';
+            }
+        }
+
+
+        if(ch[0]=='?')
+            ch[0]=ch[1]=='a'?'b':'a';
+
+        if(ch[ch.length-1]=='?')
+            ch[ch.length-1]=ch[ch.length-2]=='a'?'b':'a';
+
+        return new String(ch);
+    }
+}
