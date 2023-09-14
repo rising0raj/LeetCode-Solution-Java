@@ -1,0 +1,52 @@
+Runtime    0 ms
+Beats      100%
+
+
+Memory     41.6 MB
+Beats      98.42%
+
+
+class Solution {
+
+    public static void reverse(int a[],int i){
+        int j=i,k=a.length-1;
+        while(j<k){
+            swap(a,j,k);
+            j++;k--;
+        }
+    }
+
+    public static void swap(int a[],int i,int j){
+        int temp=a[i];
+        a[i]=a[j]; 
+        a[j]=temp;
+    }
+
+
+    public void nextPermutation(int[] nums) {
+        int index=-1,n=nums.length,i=0;
+
+        for( i=n-2;i>=0;i--){
+            if(nums[i]<nums[i+1]){
+                index=i;
+                break;
+            }
+        }
+
+        if(index == -1){
+            reverse(nums,0);
+        }else{
+            for( i=n-1;i>=index;i--){
+            if(nums[i]>nums[index]){
+                swap(nums,i,index);
+                break;
+            }
+        }
+
+        reverse(nums,index+1);
+        }
+
+        
+
+    }
+}
