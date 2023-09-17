@@ -1,0 +1,24 @@
+Runtime    1 ms
+Beats      97.92%
+
+
+Memory     39.8 MB
+Beats      42.18%
+
+
+class Solution {
+    public int reverse(int x) {
+        long res=0,a=1;
+        if(x<0){
+            x*=-1;
+            a=-1;
+        }
+        while(x>=1){
+            res=(res*10)+x%10;
+            x=x/10;
+            if(res>Integer.MAX_VALUE)
+                return 0;
+        }
+        return (int)(a*res);
+    }
+}
