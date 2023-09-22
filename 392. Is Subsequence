@@ -1,0 +1,29 @@
+Runtime    0 ms
+Beats      100%
+
+
+Memory     40.2 MB
+Beats      80.22%
+
+
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+         char[]T = t.toCharArray();
+        char[]S = s.toCharArray();
+        int m = T.length, n = S.length;
+
+        if(n==0) 
+            return true;
+
+        int s_ptr=0;
+        for(int i=0;i<m;i++){
+            if(S[s_ptr]==T[i])
+                s_ptr++;
+            if(s_ptr==n)
+                return true;
+        }
+
+        return false;
+        
+    }
+}
