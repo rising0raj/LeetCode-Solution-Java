@@ -1,0 +1,17 @@
+Runtime    1 ms
+Beats      87.36%
+
+
+Memory     39.6 MB
+Beats      63.69%
+
+
+class Solution {
+    public int divide(int dividend, int divisor) {
+        if(dividend==Integer.MIN_VALUE && divisor==-1){
+            return Integer.MAX_VALUE;
+        }
+        int ans = dividend/divisor;
+        return ans;
+    }
+}
