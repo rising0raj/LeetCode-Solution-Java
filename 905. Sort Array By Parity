@@ -1,0 +1,24 @@
+Runtime    1 ms
+Beats      81.28%
+
+
+Memory     43.5 MB
+Beats      98.11%
+
+
+class Solution {
+    public int[] sortArrayByParity(int[] nums) {
+        int i=0,n=nums.length-1;
+        while(i<n)
+        {
+            if(i<n && nums[i]%2 == 0)
+                i++;
+            if(i<n && nums[n]%2 == 1)
+                n--;
+            int tmp = nums[i];
+            nums[i]= nums[n];
+            nums[n] = tmp;
+        }
+        return nums;
+    }
+}
