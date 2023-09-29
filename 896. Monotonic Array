@@ -1,0 +1,34 @@
+Runtime    3 ms
+Beats      43.67%
+
+
+Memory     56.1 MB
+Beats      25.58%
+
+
+class Solution {
+    public boolean isMonotonic(int[] nums) {
+      boolean inc = false;
+      boolean dec = false;
+
+      for(int i=0;i<nums.length - 1;i++)
+      {
+          if(nums[i] < nums[i+1])
+          {
+              inc = true;
+          }
+
+          if(nums[i] > nums[i+1])
+          {
+              dec = true;
+          }
+      }
+
+      if(inc == true && dec == true)
+      {
+          return false;
+      }
+
+      return true;
+    }
+}
