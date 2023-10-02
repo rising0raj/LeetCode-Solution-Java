@@ -1,0 +1,28 @@
+Runtime    9 ms
+Beats      87.14%
+
+
+Memory     44 MB
+Beats      68.76%
+
+class Solution {
+    public boolean winnerOfGame(String color) {
+        if(color.length()<3)
+            return false;
+        
+        int c1=0,c2=0;
+        char colors[]=color.toCharArray();
+        for(int i=1;i<color.length()-1;i++){
+            if(colors[i]=='A'){
+                if(colors[i-1]=='A' && colors[i+1]=='A')
+                c1++;
+            }
+            if(colors[i]=='B'){
+                if(colors[i-1]=='B' && colors[i+1]=='B')
+                c2++;
+            }
+        }
+
+        return c1>c2;
+    }
+}
