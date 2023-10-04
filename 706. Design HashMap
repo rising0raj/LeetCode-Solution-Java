@@ -1,0 +1,88 @@
+Runtime    13 ms
+Beats      99.63%
+
+
+Memory     45.6 MB
+Beats      98.5%
+
+
+class MyHashMap {
+
+    HashNode[] hashNode = new HashNode[10000];
+    public MyHashMap() {
+        
+    }
+    
+    public void put(int key, int value) {
+        int idx = getHashKey(key);
+        if(hashNode[idx] == null){
+            hashNode[idx] = new HashNode(key, value);
+        }else{
+            HashNode node = hashNode[idx];
+            HashNode prev = null;
+            while(node != null && node.key != key){
+                prev = node;
+                node = node.next;
+            }
+
+            if(node == null){
+                node = new HashNode(key, value);
+                if(prev != null){
+                    prev.next = node;
+                }
+            }
+            node.val = value;
+        }
+    }
+    
+    public int get(int key) {
+        int idx = getHashKey(key);
+        if(hashNode[idx] == null){
+            return -1;
+        }else{
+            HashNode node = hashNode[idx];
+            while(node != null){
+                if(node.key == key){
+                    return node.val;
+                }
+                node = node.next;
+            }
+        }
+        return -1;
+    }
+    
+    public void remove(int key) {
+        int idx = getHashKey(key);
+        if(hashNode[idx] == null){
+            return;
+        }else{
+            if(hashNode[idx].key == key){
+                hashNode[idx] = hashNode[idx].next;
+            }else{
+                HashNode node = hashNode[idx];
+                while(node != null && node.next != null){
+                    if(node.next.key == key){
+                        node.next = node.next.next;
+                    }
+                    node = node.next;
+                }
+            }
+        }
+    }
+
+    public int getHashKey(int key){
+        return key % 10000;
+    }
+
+    static class HashNode{
+        int key;
+        int val;
+        HashNode next;
+
+        public HashNode(int key, int val){
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+}
