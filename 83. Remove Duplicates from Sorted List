@@ -1,0 +1,20 @@
+Runtime    0 ms
+Beats      100%
+
+
+Memory     43.1 MB
+Beats      42.9%
+
+
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode current=head;
+        while(current != null && current.next != null){
+            if (current.val==current.next.val)
+            current.next=current.next.next;
+            else
+            current=current.next;
+        }
+        return head;
+    }
+}
