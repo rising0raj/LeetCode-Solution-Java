@@ -1,0 +1,19 @@
+Runtime    0 ms
+Beats      100%
+
+
+Memory     39.9 MB
+Beats      87.21%
+
+
+class Solution {
+    public List<Integer> getRow(int r) {
+        List<Integer> res = new ArrayList<>();
+        res.add(1);
+
+        for(int k=1;k<=r;k++) 
+           res.add((int) ((long)res.get(k-1) * (r - k + 1) / k));
+
+        return res;
+    }
+}
