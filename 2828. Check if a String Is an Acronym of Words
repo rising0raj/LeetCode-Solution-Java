@@ -1,0 +1,23 @@
+Runtime    1 ms
+Beats      100%
+
+
+Memory     43.6 MB
+Beats      69.38%
+
+
+class Solution {
+    public boolean isAcronym(List<String> words, String s) {
+        int i=0;
+        if(words.size()!=s.length())
+            return false;
+        for(char c:s.toCharArray()){
+            if(words.get(i).charAt(0) == c){
+                i++;
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+}
