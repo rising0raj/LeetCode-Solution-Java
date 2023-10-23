@@ -1,0 +1,19 @@
+Runtime    1 ms
+Beats      76.31%
+
+
+Memory     39.1 MB
+Beats      96.30%
+
+
+class Solution {
+    public boolean isPowerOfFour(int a) {
+        float n=a;
+        while(n>0){
+           if(n==1) return true;
+           if(n==2 || n==3) return false;
+           n=n/4;
+       }
+       return false;
+    }
+}
