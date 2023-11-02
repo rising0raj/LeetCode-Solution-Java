@@ -1,0 +1,51 @@
+Runtime    0ms
+Beats     100.00%
+
+
+Memory    40.74MB
+Beats     81.98%
+
+
+class Solution {
+    public List<String> removeComments(String[] source) {
+        List<String> res = new ArrayList<String>();
+	boolean blockComment = false;
+	StringBuilder sb = new StringBuilder();
+	for (String s : source) {
+		char[] ch = s.toCharArray();
+
+		for (int i = 0; i < ch.length; i++) {
+			char c = ch[i];
+			if (!blockComment) {
+				if (c != '/')
+					sb.append(c);
+				else {
+					if (i < ch.length - 1) {
+						if (ch[i + 1] == '/')
+							break;
+						else if (ch[i + 1] == '*') {
+							blockComment = true;
+							i++;
+						} else
+							sb.append(c);
+					} else
+						sb.append(c);
+				}
+			} else {
+				if (c == '*')
+					if (i < ch.length - 1)
+						if (ch[i + 1] == '/') {
+							blockComment = false;
+							i++;
+						}
+			}
+		}
+		if (!blockComment)
+			if (sb.length() > 0) {
+				res.add(sb.toString());
+				sb = new StringBuilder();
+			}
+	}
+	return res;
+    }
+}
