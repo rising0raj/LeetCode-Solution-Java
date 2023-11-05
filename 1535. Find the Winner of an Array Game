@@ -1,0 +1,30 @@
+Runtime     0ms
+Beats       100.00%
+
+
+Memory      56.28MB
+Beats       81.16%
+
+
+class Solution {
+    public int getWinner(int[] arr, int k) {
+        // int n = arr.length;
+        int winner = arr[0];
+        int wins = 0;
+        for(int i=1; i<arr.length; i++){
+            if (winner > arr[i]) {
+                wins+=1;
+            }
+            else {
+                winner = arr[i];
+                wins = 1;
+            }
+
+            if (wins == k) {
+                return winner;
+            } 
+        }
+        return winner;
+        
+    }
+}
