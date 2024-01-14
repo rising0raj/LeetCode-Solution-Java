@@ -1,0 +1,38 @@
+//Runtime    6ms
+//Beats      34.85%
+
+//Memory     41.94MB
+//Beats      25.06%
+
+
+class Solution {
+    public boolean halvesAreAlike(String s) {
+        Set<Character> group = new HashSet<>();
+        group.add('a');
+        group.add('e');
+        group.add('i');
+        group.add('o');
+        group.add('u');
+        group.add('A');
+        group.add('E');
+        group.add('I');
+        group.add('O');
+        group.add('U');
+
+       
+        int counter = 0;
+        for(int i = 0;i<s.length()/2;i++)
+        {
+            if(group.contains(s.charAt(i)))
+            {
+                counter++;
+            }
+        }
+        for(int  i = s.length()/2;i<s.length();i++){
+            if(group.contains(s.charAt(i))){
+                counter--;
+            }
+        }
+        return counter==0;
+    }
+}
